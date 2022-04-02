@@ -35,15 +35,15 @@ private:
 	   "W                WW       WW       W    W                   W             W    W\n",
 	   "W                         W        W    WWWWWWWWWWWWWWWWWWWW   +          W    W\n",
 	   "W                         WWWW     W                          +++         W    W\n",
-	   "W    WWWWWW  WWWWWW        W     WWWWWWWWWWWWWWWWWWWWWWWWWWWWW  WWWWWWWWWWW    W\n",
+	   "W    WWWWWW  WWWWWW        W   WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW  WWWWWWWWWWW    W\n",
 	   "W    W            W        W      LIRAZ'S AND EYAL'S      W               W    W\n",
 	   "W    W   WWWWWWWWWW        W      THUNDERBIRDS GAME       W               W    W\n",
 	   "W    W            W         WWWWWWWWWWWWWWWWWWWWWWWWW     W                    W\n",
 	   "W    WWWWWWWWWW   W                                 WWWWWWWWW    WWW           W\n",
 	   "W    W            W                 *               W           W   W          W\n",
-	   "W    W  WWWWWWWWWWW    W     WWWWWW WWWWWWW         W           WWWWW     $$$WWW\n",
-	   "W    W       W         W     W            W   W     W                     $    W\n",
-	   "W    W       W         W     W            W   W     W                    $$    W\n",
+	   "W    W  WWWWWWWWWWW    W     WWWWWW WWWWWWW         W           WWWWW        WWW\n",
+	   "W    W       W         W     W            W   W     W                          W\n",
+	   "W    W       W         W     W            W   W     W                          W\n",
 	   "W            W         W     W            W   W      WWWWWWWWWWWWWWWWWWWWW     W\n",
 	   "W            W         W     W            W %%W                                W\n",
 	   "W      WWWWWWWWWWWWWWWWWWWWWWW            W  WW                                W\n",
@@ -57,7 +57,7 @@ public:
 	// Empty ctor
 	Board();
 	// Getting the legend object
-	Legend getLegend() { return legend; };
+	Legend getLegend() const { return legend; };
 	// Getting _size points on board with the char _ch. Return the points in vector
 	std::vector<Point> getPoints(char _ch, int _size);
 	// Get the char on the board of an x,y point 

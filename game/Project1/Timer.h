@@ -14,11 +14,11 @@ public:
 	// Reset the "tick" start time to now
 	void resetTickStartTime() { tickStartTime = std::chrono::steady_clock::now(); }
 	// Return the delta time
-	float getDeltaTime() { return deltaTime.count(); };
+	float getDeltaTime() const { return deltaTime.count(); };
 	// Advance the timer's delta time
 	void tick() { deltaTime = std::chrono::steady_clock::now() - tickStartTime; }
 	// Return the time left to screen
-	int getTimeLeft() { return timeLeft; }
+	int getTimeLeft() const { return timeLeft; }
 	// Reduce time left by 1
 	void reduceTimeLeft() { timeLeft -= 1; }
 };

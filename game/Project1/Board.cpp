@@ -1,6 +1,7 @@
 #include "Board.h"
 #include "Point.h"
 #include "Ship.h"
+#include "Color.h"
 
 Board::Board() {
 	resetCurrentBoard();
@@ -65,15 +66,20 @@ std::vector<Point> Board::checkMoving(std::vector<Point> points, int size, char 
 
 void Board::Legend::print(int activeShip, int timeLeft, int livesCount) const {
 	gotoxy(legendLocation.getX(), legendLocation.getY());
+	Color::setTextColor(TextColor::GREEN);
 	std::cout << "Active Ship: ";
 	printActiveShip(activeShip);
+	Color::setTextColor(TextColor::YELLOW);
 	std::cout << "       Time Left: ";
 	printTimer(timeLeft);
+	Color::setTextColor(TextColor::LIGHTRED);
 	std::cout << "       Lives: ";
 	printLives(livesCount);
+	Color::setTextColor(TextColor::WHITE);
 }
 
 void Board::Legend::printActiveShip(int activeShip) const {
+	Color::setTextColor(TextColor::GREEN);
 	gotoxy(legendLocation.getX() + int(PrintPoints::ACTIVE_SHIP_X), legendLocation.getY());
 	if (activeShip == int(ShipsIndex::BIG_SHIP)) {
 		std::cout << "Big  ";
@@ -81,6 +87,7 @@ void Board::Legend::printActiveShip(int activeShip) const {
 	else {
 		std::cout << "Small";
 	}
+	Color::setTextColor(TextColor::WHITE);
 }
 
 void Board::Legend::printLives(int livesCount) const {
@@ -89,6 +96,7 @@ void Board::Legend::printLives(int livesCount) const {
 }
 
 void Board::Legend::printTimer(int timeLeft) const {
+	Color::setTextColor(TextColor::YELLOW);
 	// x coordination of the timer
 	int x = getLegendLocation().getX() + int(PrintPoints::TIMER_X);
 	// y coordination of the timer
@@ -103,4 +111,5 @@ void Board::Legend::printTimer(int timeLeft) const {
 		gotoxy(x + 1, y);
 		std::cout << char(BoardSymbols::BLANK);  // Erase last digit
 	}
+	Color::setTextColor(TextColor::WHITE);
 }

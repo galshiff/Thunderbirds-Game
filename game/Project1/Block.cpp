@@ -5,6 +5,7 @@
 #include "Color.h"
 
 Block::Block(char _ch, int _size, Board* _pBoard) : ch(_ch), size(_size), pBoard(_pBoard) {
+	points.reserve(_size);
 	points = _pBoard->getPoints(_ch, _size);
 }
 
@@ -30,7 +31,7 @@ void Block::deleteFromScreen() const {
 	}
 }
 
-bool Block::isBlockIncludesPoint(Point p) {
+bool Block::isBlockIncludesPoint(Point p) const {
 	for (int i = 0; i < points.size(); i++) {
 		if (points[i].getX() == p.getX() && points[i].getY() == p.getY())
 			return true;

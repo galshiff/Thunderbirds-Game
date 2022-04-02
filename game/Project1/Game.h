@@ -16,5 +16,5 @@ public:
 	// Set the "keepPlaying" falg to false
 	static void stopPlaying() { Game::keepPlaying = false; }
 	// Check if the user lost the game
-	bool isGameLost();
+	bool isGameLost() const;
 };

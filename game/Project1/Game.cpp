@@ -33,6 +33,6 @@ void Game::play() {
 	}
 }
 
-bool Game::isGameLost() {
+bool Game::isGameLost() const {
 	return (livesCount == 0);
 }

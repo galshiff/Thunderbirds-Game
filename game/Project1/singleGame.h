@@ -18,8 +18,8 @@ class SingleGame {
 	Timer timer;
 	Ship ships[2] = { {char(BoardSymbols::BIG_SHIP), 4, &board, 6}, {char(BoardSymbols::SMALL_SHIP), 2, &board, 2} }; // Index 0 is big ship and 1 is small ship
 	int activeShip = int(ShipsIndex::BIG_SHIP);
-	constexpr static int blocksAmount = 6;
-	Block blocks[blocksAmount] = { {'+', 4, &board}, {'^', 2, &board}, {'$', 6, &board}, {'%', 2, &board}, {'!', 8, &board}, {'*', 1, &board} };
+	constexpr static int blocksAmount = 5;
+	Block blocks[blocksAmount] = { {'+', 4, &board}, {'^', 2, &board}, {'%', 2, &board}, {'!', 8, &board}, {'*', 1, &board} };
 	int livesCount;
 	Color color;
 	int dirx = 0;
@@ -48,7 +48,7 @@ public:
 	// Return all the blocks indexes in "blocks" array which can move after a ship pushed them
 	std::set<int> getBlocksCanMoveAfterCollideByShip(std::vector<Point> points, bool& canMove, bool& isColide);
 	// Clculate the total size of all the blocks in "blocksIndexesToMove"
-	int getTotalSizeOfBlocks(std::set<int> blocksIndexesToMove);
+	int getTotalSizeOfBlocks(std::set<int> blocksIndexesToMove) const;
 	// Return the collision points of the blocks in "blocksIndexesToMove",
 	// The points which are not BLANK or the points char itself
 	std::vector<Point> getTheNextCollisionPointsOfBlocks(std::set<int> blocksIndexesToMove);
@@ -63,9 +63,9 @@ public:
 	// Checks if blocks fall on the ships, and if they can hold them or not
 	bool checkBlockFallsOnShip(std::vector<Point> points, int blockSize);
 	// Checks if the points have the chars in charsArr
-	bool arePointsHaveChars(std::vector<Point> points, char* charsArr, int size);
+	bool arePointsHaveChars(std::vector<Point> points, char* charsArr, int size) const;
 	// Checks if arr has ch in it  
-	bool isArrayIncludesChar(char* arr, int size, char ch);
+	bool isArrayIncludesChar(char* arr, int size, char ch) const;
 	// Return true of all the points have ch
-	bool areAllPointsIncludeChar(std::vector<Point> points, char ch);
+	bool areAllPointsIncludeChar(std::vector<Point> points, char ch) const;
 };
